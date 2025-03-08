@@ -128,7 +128,7 @@ public class MahasiswaCLI {
         System.out.print("Masukkan NIM baru: ");
         String nimBaru = scanner.nextLine();
 
-        // Cek apakah NIM baru sudah ada, tetapi bukan NIM yang sedang diupdate
+        
         if (!nimLama.equals(nimBaru) && mahasiswaMap.containsKey(nimBaru)) {
             System.out.println("NIM sudah digunakan oleh mahasiswa lain! Perubahan dibatalkan.");
             return;
@@ -142,14 +142,14 @@ public class MahasiswaCLI {
         mhs.sks = getIntInput(scanner, "SKS baru: ");
         mhs.ipk = getDoubleInput(scanner, "IPK baru: ");
 
-        // Hapus NIM lama jika NIM berubah
+        
         if (!nimLama.equals(nimBaru)) {
             mahasiswaMap.remove(nimLama);
             mhs.nim = nimBaru;
             mahasiswaMap.put(nimBaru, mhs);
         }
 
-        // Perbarui dalam ArrayList
+        
         for (int i = 0; i < mahasiswaList.size(); i++) {
             if (mahasiswaList.get(i).nim.equals(nimLama)) {
                 mahasiswaList.set(i, mhs);
